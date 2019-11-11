@@ -4,30 +4,31 @@
 <div class="page page-student">
 
     <section class="info">
+   
+            <img class="portrait" src="{{ asset('img/'.$student->slug.'.jpg') }}" alt="">
 
-        <img class="portrait" src="{{ asset('img/'.$student->slug.'.jpg') }}" alt="">
+            <div class="data">
+                <h1>{{ $student->name }}</h1>
 
-        <div class="data">
-            <h1>{{ $student->name }}</h1>
-
-            <div class="story">
-                {!! nl2br($student->history) !!}
+                <div class="story">
+                    {!! nl2br($student->history) !!}
+                </div>
             </div>
-        </div>
 
-        <div class="lessons">
-            <h2>Lessons</h2>
-            From {{ date('g:i A', strtotime($student->available_from)) }} to {{ date('g:i A', strtotime($student->available_until)) }}.
+            <div class="lessons">
+                <h2>Lessons</h2>
+                From {{ date('g:i A', strtotime($student->available_from)) }} to {{ date('g:i A', strtotime($student->available_until)) }}.
 
-            <div class="status unavailable">Current status: <span>Unavailable</span></div>
-        </div>
-
+                <div class="status unavailable">Current status: <span>Unavailable</span></div>
+            </div>
+      
     </section>
 
     <section class="detention-assign">
         <h2>Give detention</h2>
 
-        <form action="" method="post">
+        <form method="POST" action="{{ 'DetentionController@store' }}"> 
+            @csrf
 
             <input type="text" name="subject" placeholder="Reason for detention">
 

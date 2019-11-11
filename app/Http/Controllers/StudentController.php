@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Detention;
 
 use Illuminate\Http\Request;
 
@@ -25,11 +26,23 @@ class StudentController extends Controller
         $students = \App\Student::all()->orderBy('name', 'ASC')->get();
 
         if (!$students) {
-            abort(404, 'Student not found');
+            abort(404, 'Students not found');
         }
 
         $view = view('student/index');
         $view->students = $students;
         return $view;
+    }
+
+    public function store(Request $request)
+    {
+        
+        $detention = new Detention();
+        $detention->subject = request('subject');
+        $detention->description = request('description');
+
+        $detention->save();
+
+        return redirect(action('HomeController@index'));
     }
 }
