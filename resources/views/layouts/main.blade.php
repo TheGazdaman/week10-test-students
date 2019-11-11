@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hogwarts</title>
-
+    <link rel="stylesheet" href="public/main.css">
     <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Bangers&amp;subset=latin-ext" rel="stylesheet">
     
     {{-- load the stylesheet --}}
@@ -12,7 +12,7 @@
 <body>
 
     <nav class="menu">
-        <a href="#">Home</a>
+    <a href="{{ action('HomeController@index')}}">Home</a>
         @guest
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>

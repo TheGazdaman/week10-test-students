@@ -19,4 +19,17 @@ class StudentController extends Controller
         $view->student = $student;
         return $view;
     }
+
+    public function index()
+    {
+        $students = \App\Student::all()->orderBy('name', 'ASC')->get();
+
+        if (!$students) {
+            abort(404, 'Student not found');
+        }
+
+        $view = view('student/index');
+        $view->students = $students;
+        return $view;
+    }
 }

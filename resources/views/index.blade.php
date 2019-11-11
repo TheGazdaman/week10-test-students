@@ -29,6 +29,6 @@
             <img src="img/luna.jpg" alt="">
         </a>
     </div>
-
+    
 </div>
 @endsection
