@@ -23,7 +23,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students = \App\Student::all()->orderBy('name', 'ASC')->get();
+        $students = \App\Student::orderBy('name', 'ASC')->get();
 
         if (!$students) {
             abort(404, 'Students not found');

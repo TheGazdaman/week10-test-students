@@ -21,6 +21,6 @@ Route::get('/index', 'HomeController@index');
 
 Route::get('/student/{slug}', 'StudentController@show');
 
-Route::get('/student/index', 'StudentController@index');
+Route::get('/students/index', 'StudentController@index');
 
 Route::post('/student/{slug}', 'StudentController@store');
